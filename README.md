@@ -1,6 +1,6 @@
 ### Features
 
-- Este repositorio contiene el backend para una aplicacion de manejo de tareas relacionadas con los usuarios consumiendo servicios de API 
+- Este repositorio contiene el frontend para una aplicacion de manejo de tareas relacionadas con los usuarios consumiendo servicios de API 
 
 # Task Manager Front
 
