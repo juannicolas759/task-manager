@@ -1,0 +1,46 @@
+
+<nz-layout>
+    <nz-content>
+      <form nz-form class="login-form" (ngSubmit)="formSubmit()">
+        <nz-form-item>
+          <h1>Login</h1>
+        </nz-form-item>
+        <nz-form-item nzSpan="10">
+          <nz-form-control nzErrorTip="Por favor ingresa tu usuario">
+            <nz-input-group nzPrefixIcon="user">
+              <input [(ngModel)]="loginData.email" type="text" name="username" nz-input required
+                placeholder="Usuario" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nzSpan="10">
+          <nz-form-control nzErrorTip="Por favor ingresa tu contraseña">
+            <nz-input-group [nzSuffix]="suffixTemplate">
+              <input
+              name="password"
+                [type]="passwordVisible ? 'text' : 'password'"
+                nz-input
+                required
+                placeholder="Contraseña"
+                [(ngModel)]="loginData.user_password"
+                type="password"
+              />
+            </nz-input-group>
+            <ng-template #suffixTemplate>
+              <span
+                nz-icon
+                [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                (click)="passwordVisible = !passwordVisible"
+              ></span>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item nz-row nzJustify="center">
+          <button nz-button class="login-form-button login-form-margin" nzDanger [nzType]="'primary'">Log in</button>
+        </nz-form-item>
+      </form>
+  
+    </nz-content>
+  
+  </nz-layout>

@@ -1,0 +1,38 @@
+<div class="header">
+    <h4 class="title">{{title}}</h4>
+</div>
+
+<form [formGroup]="taskForm" (ngSubmit)="validate()">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea rows="5" class="form-control" placeholder="Descripción"
+                        value="" formControlName="description_task"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="validationDefault01">Tipo</label>
+                <nz-select class="form-control" formControlName="type_task" (ngModel)="selectedType">
+                    <nz-option *ngFor="let ce of type_task" [nzValue]="ce.id" nzLabel="{{ce.name}}" ></nz-option>
+                  </nz-select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="validationDefault01">Fecha aprox. de finalización </label>
+                <nz-date-picker nzShowTime nzFormat="yyyy-MM-dd HH:mm:ss" ngModel formControlName="guess_end_date" (ngModelChange)="onChange($event)"
+                    (nzOnOk)="onOk($event)"></nz-date-picker>
+            </div>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-danger btn-fill pull-right" (click)="addEditUser()"
+        [disabled]="!taskForm.valid">Guardar</button>
+    <div class="clearfix"></div>
+</form>

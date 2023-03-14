@@ -1,0 +1,32 @@
+<nz-content>
+<div class="inner-content">
+    <div class="col-6">
+        <button class="btn btn-danger float-right" type="button" routerLink="/app/users/add-user/"> Agregar</button>
+      </div>
+              <nz-table *ngIf="reports.length > 0" class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let report of reports">
+                    <td>{{report.first_name}}</td>
+                    <td>{{report.last_name}}</td>
+                    <td>{{report.email}}</td>
+                    <td>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <button nz-button nzType="default" nzShape="circle" nzDanger><span nz-icon nzType="edit" [routerLink]="['/app/users/edit-user/', report.user_id]"></span></button>
+                        </div>
+                        <button class="col-2" nz-button nzType="primary" nzShape="circle" nzDanger><span nz-icon nzType="close" nzTheme="outline" (click)="deleteUser(report.user_id)"></span></button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </nz-table>
+            </div>
+</nz-content>

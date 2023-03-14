@@ -1,0 +1,28 @@
+<div class="header">
+    <h4 class="title">{{title}}</h4>
+</div>
+
+<form [formGroup]="taskAForm" (ngSubmit)="addTask()">
+    <div class="row">
+        <div class="col-md-5">
+             <div class="form-group">
+                <label for="validationDefault01">Usuario</label>
+                <nz-select class="form-control" formControlName="type_task" (ngModel)="selectedType">
+                    <!-- <nz-option *ngFor="let ce of users" [nzValue]="ce.user_id" nzLabel="{{ce.first_name}}" ></nz-option> -->
+                  </nz-select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="validationDefault01">Tarea</label>
+                <nz-select class="form-control" formControlName="type_task" (ngModel)="selectedType">
+                    <!-- <nz-option *ngFor="let ce of tasks" [nzValue]="ce.task_id" nzLabel="{{ce.description_task}}" ></nz-option> -->
+                  </nz-select>
+            </div>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-danger btn-fill pull-right" (click)="addTask()"
+        [disabled]="!taskAForm.valid">Guardar</button>
+    <div class="clearfix"></div>
+</form>
